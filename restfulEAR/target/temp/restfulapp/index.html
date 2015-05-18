@@ -1,0 +1,65 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>CSR - Bookservices</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/gif" href="favicon.ico">
+
+		<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
+		<link rel="stylesheet" href="resources/styles/style.css">
+	</head>
+	<body ng-app="csrApp">
+
+		<!--[if lt IE 8]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+		<script src="resources/js/lib/es5-shim/es5-shim..min.js"></script>
+		<script src="resources/js/lib/json3/lib/json3.min.js"></script>
+		<![endif]-->
+
+		<div class="wrapper primary background">
+			<div class="container">
+				<header class="header">
+					<img src="resources/images/logo.gif" class="img-responsive" />
+				</header>
+
+			</div>
+			<div class="text-center">
+				<a href="http://www.csr.com/about" target="_blank"> <img src="resources/images/csr_brand.mattia.jpg" class="csr img-responsive"/> </a>
+			</div>
+			<div ng-view></div>
+		</div>
+		<div class="wrapper secondary">
+			<footer>
+				<div class="text-center">
+					<p>
+						Java Developer - Server side - Linux | Interview Task | Mattia Mascia | &copy CSR - Cambridge Silicon Radio 2014 | All rights reserved
+					</p>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- scripts -->
+		<script src="resources/js/lib/jquery.min.js"></script>
+		<script src="resources/js/lib/angular.min.js"></script>
+		<script src="resources/js/lib/angular-resource.min.js"></script>
+		<script src="resources/js/lib/angular-route.min.js"></script>
+		<script type="text/javascript" src="resources/js/lib/bootstrap.min.js"></script>
+
+		<script src="resources/js/app.js"></script>
+		<script src="resources/js/services.js"></script>
+		<script src="resources/js/controllers.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,5 @@
+com/csr/rest/InstanceResource.class
+com/csr/rest/BookResource.class
+com/csr/rest/config/ApplicationResourceConfig.class
+com/csr/rest/model/BookResponse.class
+com/csr/rest/model/BookRequest.class

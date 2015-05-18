@@ -1,0 +1,57 @@
+<html ng-app="angularjsapp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample Angular JS - Driver</title>
+	<script src="resources/js/lib/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap-theme.min.css">
+	<script src="resources/js/lib/angular.js"></script>
+	<script src="resources/js/DriverController.js"></script>
+	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+</head>
+
+<body ng-controller="DriverController as controller">
+		<div class="container">
+			<h3>Add a new Driver</h3>
+			<form class="form">
+				ID: <input type="text" ng-model="driver.id" readonly="readonly"/> <br/>
+				Name: <input type="text" ng-model="driver.name"/> <br/>
+				License: <input type="text" ng-model="driver.license"/><br/>
+				<button ng-click="save()" class="btn btn-success">Save</button>
+				<button ng-click="update()" class="btn btn-success">Update</button>
+			</form>
+			
+			<br/>
+			
+			<h3>List of Drivers</h3>
+			<table class="table table-striped" style="width : 30%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>License</th>
+                        <th>Remove?</th>
+                        <th>Update?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="driver in driverlist | orderBy: driver.name">
+                        <td>{{driver.id}}</td>
+                        <td>{{driver.name}}</td>
+                        <td>{{driver.license}}</td>
+                        <td>
+                        	<button ng-click="remove(driver)" class="btn btn-danger">Remove</button>
+                        </td>
+						<td>
+                        	<button ng-click="updateData(driver)" class="btn btn-danger">Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+		
+</body>
+</html>

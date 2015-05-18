@@ -1,0 +1,5 @@
+com/csr/rest/ejb/log/Log.class
+com/csr/rest/ejb/book/BookRepository.class
+com/csr/rest/ejb/book/BookRepositoryBean.class
+com/csr/rest/ejb/domain/Book.class
+com/csr/rest/ejb/log/LoggingRestInterceptor.class

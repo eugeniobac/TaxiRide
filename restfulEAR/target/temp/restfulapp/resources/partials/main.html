@@ -1,0 +1,34 @@
+<!-- search book -->
+<div class="container">
+
+	<div class=" panel panel-default book">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">CSR - Cambridge Silicon Radio</h3>
+		</div>
+		<div class="panel-body table-responsive text-center">
+			<form class="form-inline controls controls-row" role="form"
+			name="form" ng-submit="bookService()">
+				<div class="form-group">
+					<label class="sr-only" for="bod">Tspecified</label>
+					<input
+					type="text" class="form-control" id="tSpecified"
+					name="tSpecified" placeholder="Tspecified (yyyy-MM-ddTHH:mm:ss)"
+					ng-model="bookForm.tSpecified" required maxlength="19" ng-minlength="19"/>
+				</div>
+				<button id="confirm" type="submit" class="btn btn-primary"
+				ng-disabled="form.$invalid || loading">
+					Send Request
+				</button>
+				<img src="resources/images/ajax-loader.gif" ng-show="loading" />
+
+			</form>
+		</div>
+	</div>
+	<div class="alert alert-info success text-center" ng-show="welldone">
+		<p>
+			<h1 ng-model="welldone" >{{welldone}}</h1>
+		</p>
+	</div>
+</div>
+

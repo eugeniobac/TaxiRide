@@ -1,0 +1,29 @@
+[#|2014-03-23T19:57:19.920+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=88;_ThreadName=Thread-2;|19:57:19.903 [http-thread-pool-8080(1)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Request bookservices with Parameters [BookRequest [tSpecified=Sun Mar 23 19:57:22 CET 2014]]
+|#]
+
+[#|2014-03-23T19:57:20.297+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=88;_ThreadName=Thread-2;|19:57:20.297 [http-thread-pool-8080(1)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Response bookservices status 202 content BookResponse [id=51, poolref=http://localhost:8080/restfulapp-0.0.1-SNAPSHOT/api/bookservices/pendingTransactions/51]
+|#]
+
+[#|2014-03-23T19:57:20.414+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=89;_ThreadName=Thread-2;|19:57:20.414 [http-thread-pool-8080(2)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Request pendingTransactions with Parameters [51]
+|#]
+
+[#|2014-03-23T19:57:20.428+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=89;_ThreadName=Thread-2;|19:57:20.428 [http-thread-pool-8080(2)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Response pendingTransactions status 200 content null
+|#]
+
+[#|2014-03-23T19:57:21.434+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=90;_ThreadName=Thread-2;|19:57:21.434 [http-thread-pool-8080(3)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Request pendingTransactions with Parameters [51]
+|#]
+
+[#|2014-03-23T19:57:21.436+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=90;_ThreadName=Thread-2;|19:57:21.435 [http-thread-pool-8080(3)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Response pendingTransactions status 200 content null
+|#]
+
+[#|2014-03-23T19:57:22.440+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=91;_ThreadName=Thread-2;|19:57:22.440 [http-thread-pool-8080(4)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Request pendingTransactions with Parameters [51]
+|#]
+
+[#|2014-03-23T19:57:22.442+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=91;_ThreadName=Thread-2;|19:57:22.442 [http-thread-pool-8080(4)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Response pendingTransactions status 303 content null
+|#]
+
+[#|2014-03-23T19:57:22.496+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=88;_ThreadName=Thread-2;|19:57:22.496 [http-thread-pool-8080(1)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Request instance with Parameters [51]
+|#]
+
+[#|2014-03-23T19:57:22.496+0100|INFO|oracle-glassfish3.1.2|javax.enterprise.system.std.com.sun.enterprise.server.logging|_ThreadID=88;_ThreadName=Thread-2;|19:57:22.496 [http-thread-pool-8080(1)] INFO  c.c.r.ejb.log.LoggingRestInterceptor - Response instance status 200 content Well Done!
+|#]

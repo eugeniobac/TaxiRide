@@ -1,0 +1,144 @@
+/* Space out content a bit */
+body {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #6D6E71;
+	font-weight: bold;
+}
+
+input {
+	color: #000000;
+}
+
+a {
+	color: #000000;
+}
+
+a:hover, a:focus {
+	color: #3A75C4;
+	text-decoration: underline;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header, .user-form, .footer {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Custom page header */
+.header {
+	padding-bottom: 2px;
+	z-index: 2000;
+}
+/* Make the img heading the same height as the navigation */
+.header img {
+	height: 50px;
+}
+
+/* Sticky Footer */
+html, body {
+	height: 100%;
+}
+
+.wrapper, .wrapper .container {
+	width: 100%;
+}
+
+.wrapper.primary {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0px 0px -38px 0px;
+}
+
+.wrapper.secondary {
+	height: 38px;
+	padding: 20px 0px 0px 0px;
+}
+
+.wrapper.secondary footer {
+	height: 38px;
+}
+
+footer {
+	background-color: #E3E3E5;
+	color: #6D6E71;
+	margin-top: 20px;
+}
+
+.background {
+	background-color: white;
+}
+
+/* Customize container */
+@media (min-width: 992px) {
+	.container {
+		max-width: 970px;
+	}
+}
+
+/* Panel */
+.csr, .panel.book , .success{
+	-webkit-box-shadow: 3px 3px 24px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 3px 3px 24px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 3px 3px 24px 0px rgba(50, 50, 50, 0.75);
+	margin: 1% auto;
+}
+
+.book .panel-heading {
+	background-color: #E3E3E5;
+}
+
+.book .panel-title {
+	font-weight: bold;
+	color: #6D6E71;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+	/* Remove the padding we set earlier */
+	.header, .footer {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	/* Space out the masthead */
+	.header {
+		margin-bottom: 20px;
+		width: 90%;
+	}
+	.book{
+		width: 90%;
+	}
+	
+}
+
+/*validation*/
+input.ng-invalid {
+	border: 2px solid red;
+}
+
+input.ng-valid {
+	border: 1px solid green;
+}
+
+/* ajax-loader */
+.ajax-loader {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	z-index: 3000;
+	width: 100%;
+	height: 100%;
+	opacity: 0.4;
+	filter: alpha(opacity = 40);
+	background-color: white;
+}
+
+.ajax-loader img {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
