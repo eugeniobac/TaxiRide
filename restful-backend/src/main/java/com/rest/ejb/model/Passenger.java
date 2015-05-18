@@ -19,27 +19,12 @@ public class Passenger implements Serializable {
     @GeneratedValue
     private Long id;
 
-    private String name;
-    private String license;
+    private String firstName;
+    private String lastName;
+    private Integer age;
 
     @OneToOne(mappedBy = "passenger")
     private TaxiRide taxiRider;
-
-    public String getName() {
-	return name;
-    }
-
-    public void setName(String name) {
-	this.name = name;
-    }
-
-    public String getLicense() {
-	return license;
-    }
-
-    public void setLicense(String license) {
-	this.license = license;
-    }
 
     public TaxiRide getTaxiRider() {
 	return taxiRider;
@@ -47,5 +32,29 @@ public class Passenger implements Serializable {
 
     public void setTaxiRider(TaxiRide taxiRider) {
 	this.taxiRider = taxiRider;
+    }
+
+    public String getFirstName() {
+	return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
+    }
+
+    public String getLastName() {
+	return lastName;
+    }
+
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
+
+    public Integer getAge() {
+	return age;
+    }
+
+    public void setAge(Integer age) {
+	this.age = age;
     }
 }
