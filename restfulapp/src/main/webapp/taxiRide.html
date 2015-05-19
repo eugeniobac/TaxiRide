@@ -29,55 +29,36 @@
 	                <input type="number" class="form-control" name="cost" ng-model="taxiRide.cost" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required />
 				</label>
 				<br/>
+				<label>New Passengers:
+					<select ng-model="taxiRide.passengers.id" ng-options="passenger.firstName for passenger in newPassengersList "></select>
+				</label>
 			    <button class="btn btn-default" ng-click="open('sm')">Add New Passenger</button>
+				<br/>
+				<label>Passengers from history:
+					<select ng-model="taxiRide.passengers.id" ng-options="passenger.firstName for passenger in historyPassengersList "></select>
+				</label>
 				
-				 <script type="text/ng-template" id="passenger.html">
-     			   <div class="modal-header">
-      			      <h3 class="modal-title">Add new Passenger</h3>
-     			   </div>
-     			   <div class="modal-body">
-						First Name: <input type="text" ng-model="passenger.firstName"/> <br/>
-						Last Name: <input type="text" ng-model="passenger.lastName"/> <br/>
-						Age: <input type="number" ng-model="passenger.age"/><br/>
-     			   </div>
-       				 <div class="modal-footer">
-         			   <button class="btn btn-primary" ng-click="ok()">OK</button>
-     			       <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-      			  </div>
-  			  </script>
-				
+				<br/>
 				<button ng-click="save()" class="btn btn-success">Save</button>
 				<button ng-click="update()" class="btn btn-success">Update</button>
 			</form>
 			
 			<br/>
-			
-			<h3>List of Drivers</h3>
-			<table class="table table-striped" style="width : 30%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>License</th>
-                        <th>Remove?</th>
-                        <th>Update?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="driver in driverlist | orderBy: driver.name">
-                        <td>{{driver.id}}</td>
-                        <td>{{driver.name}}</td>
-                        <td>{{driver.license}}</td>
-                        <td>
-                        	<button ng-click="remove(driver)" class="btn btn-danger">Remove</button>
-                        </td>
-						<td>
-                        	<button ng-click="updateData(driver)" class="btn btn-danger">Update</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
 		</div>
+		 <script type="text/ng-template" id="passenger.html">
+    	   <div class="modal-header">
+		      <h3 class="modal-title">Add new Passenger</h3>
+		   </div>
+		   <div class="modal-body">
+				First Name: <input type="text" ng-model="passenger.firstName"/> <br/>
+				Last Name: <input type="text" ng-model="passenger.lastName"/> <br/>
+				Age: <input type="number" ng-model="passenger.age"/><br/>
+ 		   </div>
+ 			 <div class="modal-footer">
+       			   <button class="btn btn-primary" ng-click="ok()">OK</button>
+   			       <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      		  </div>
+  		</script>
 </body>
 
 </html>

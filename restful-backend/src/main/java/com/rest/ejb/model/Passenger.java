@@ -24,14 +24,14 @@ public class Passenger implements Serializable {
     private Integer age;
 
     @OneToOne(mappedBy = "passenger")
-    private TaxiRide taxiRider;
+    private TaxiRide taxiRide;
 
-    public TaxiRide getTaxiRider() {
-	return taxiRider;
+    public TaxiRide getTaxiRide() {
+	return taxiRide;
     }
 
-    public void setTaxiRider(TaxiRide taxiRider) {
-	this.taxiRider = taxiRider;
+    public void setTaxiRide(TaxiRide taxiRide) {
+	this.taxiRide = taxiRide;
     }
 
     public String getFirstName() {

@@ -30,42 +30,28 @@
 		    $scope.animationsEnabled = !$scope.animationsEnabled;
 		  };
 
-		
-		
-		$scope.list = function() {
+		$scope.listDriver = function() {
 			$http.get(url + '/driver/list').success(function(data) {
-				console.debug(data);
 				$scope.driverlist = data;
 			});
 		};
-
-		$scope.save = function() {
-			$http.post(url +  "/driver/new", angular.toJson($scope.driver)).success(function(data) {
-				$scope.driverlist.unshift(data);
+		
+		$scope.listNewPassengers = function() {
+			$http.get(url + '/passenger/listNewPassengers').success(function(data) {
+				$scope.newPassengersList = data;
 			});
 		};
 		
-		$scope.updateData = function(driver) {
-			$scope.driver = driver;
-		};	
-
-		$scope.update = function() {
-			$http.put(url +  "/driver/update", angular.toJson($scope.driver)).success(function(data) {
-				$scope.driverlist.unshift(data);
-				$scope.list();
+		$scope.listPassengersFromHistory = function() {
+			$http.get(url + '/passenger/listPassengersFromHistory').success(function(data) {
+				$scope.historyPassengersList = data;
 			});
 		};
 
-		$scope.remove = function(driver) {
-			var id = driver.id;
-			$http['delete'](url + "/driver/delete/" + id).success(function() {
-				var index = $scope.driverlist.indexOf(driver);
-				$scope.driverlist.splice(index, 1);
-			});
-		};
-		
 		var init = function() {
-			$scope.list();
+			$scope.listDriver();
+			$scope.listNewPassengers();
+			$scope.listPassengersFromHistory();
 		}();
 	}]);
 

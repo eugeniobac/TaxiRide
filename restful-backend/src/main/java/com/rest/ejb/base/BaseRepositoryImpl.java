@@ -40,23 +40,23 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
     }
 
     @Override
-    public List<T> findByAttributtes(HashMap<String, Object> atributos) {
+    public List<T> findByAttributtes(HashMap<String, Object> attributes) {
 	Criteria crit = getSession().createCriteria(getClassType());
-	for (Entry<String, Object> a : atributos.entrySet())
+	for (Entry<String, Object> a : attributes.entrySet())
 	    crit.add(Restrictions.eq(a.getKey(), a.getValue()));
 
 	return crit.list();
     }
 
     @Override
-    public List<T> findByAttribute(String atributo, Object valor) {
+    public List<T> findByAttribute(String attribute, Object valor) {
 	String classe = getClassType().getSimpleName();
 
 	try {
-	    valor = Integer.valueOf(valor.toString());
+	    valor = Long.valueOf(valor.toString());
 	} catch (Exception e) {}
 
-	return getSession().createQuery("SELECT x FROM " + classe + " x WHERE x." + atributo + " = :valor").setParameter("valor", valor)
+	return getSession().createQuery("SELECT x FROM " + classe + " x WHERE x." + attribute + " = :valor").setParameter("valor", valor)
 		.list();
     }
 

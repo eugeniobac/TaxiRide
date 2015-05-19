@@ -12,3 +12,4 @@ Simple RESTful -  EJB 3.1
   - AngularJS
   - Bootstrap
   - JQuery
+  - JBoss EAP 6.3
