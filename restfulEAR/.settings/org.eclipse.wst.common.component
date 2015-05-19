@@ -95,7 +95,7 @@
         <dependent-module archiveName="mysql-connector-java-5.1.6.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="gson-2.3.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar">
+        <dependent-module archiveName="jackson-core-asl-1.9.13.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

@@ -4,11 +4,14 @@
 package com.rest.ejb.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 public class Passenger implements Serializable {
@@ -23,16 +26,9 @@ public class Passenger implements Serializable {
     private String lastName;
     private Integer age;
 
-    @OneToOne(mappedBy = "passenger")
-    private TaxiRide taxiRide;
-
-    public TaxiRide getTaxiRide() {
-	return taxiRide;
-    }
-
-    public void setTaxiRide(TaxiRide taxiRide) {
-	this.taxiRide = taxiRide;
-    }
+    @OneToMany(mappedBy = "passenger")
+    @JsonIgnore
+    private List<TaxiRide> taxiRide;
 
     public String getFirstName() {
 	return firstName;
@@ -56,5 +52,21 @@ public class Passenger implements Serializable {
 
     public void setAge(Integer age) {
 	this.age = age;
+    }
+
+    public Long getId() {
+	return id;
+    }
+
+    public void setId(Long id) {
+	this.id = id;
+    }
+
+    public List<TaxiRide> getTaxiRide() {
+	return taxiRide;
+    }
+
+    public void setTaxiRide(List<TaxiRide> taxiRide) {
+	this.taxiRide = taxiRide;
     }
 }

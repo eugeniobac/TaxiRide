@@ -11,6 +11,19 @@
 	<script src="resources/js/lib/angular.js"></script>
 	<script src="resources/js/TaxiRideController.js"></script>
 	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	
+	<style>
+	  .full button span {
+	    background-color: limegreen;
+	    border-radius: 32px;
+	    color: black;
+	  }
+	  .partially button span {
+	    background-color: orange;
+	    border-radius: 32px;
+	    color: black;
+	  }
+	</style>
 </head>
 
 <body ng-controller="TaxiRideController as controller">
@@ -18,7 +31,7 @@
 			<h3>Taxi Ride</h3>
 			<form class="form">
 				<label>Driver:<br/>
-					<select ng-model="taxiRide.driver.id" ng-options="driver.name for driver in driverlist "></select>
+					<select ng-model="taxiRide.driver" ng-options="driver.name for driver in driverlist "></select>
 				</label>
 				<br/>
 				<label>Duration:
@@ -26,21 +39,33 @@
 				</label>
 				<br/>
 				<label>Cost:
-	                <input type="number" class="form-control" name="cost" ng-model="taxiRide.cost" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required />
+	                <input type="number" class="form-control" name="cost" ng-model="taxiRide.cost" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.10" required />
 				</label>
 				<br/>
 				<label>New Passengers:
-					<select ng-model="taxiRide.passengers.id" ng-options="passenger.firstName for passenger in newPassengersList "></select>
+					<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in newPassengersList "></select>
 				</label>
-			    <button class="btn btn-default" ng-click="open('sm')">Add New Passenger</button>
+			    <button class="btn btn-default" ng-click="openModal('sm')">Add New Passenger</button>
 				<br/>
 				<label>Passengers from history:
-					<select ng-model="taxiRide.passengers.id" ng-options="passenger.firstName for passenger in historyPassengersList "></select>
+					<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in historyPassengersList "></select>
 				</label>
-				
 				<br/>
+
+				<label>Date:</label>				
+			    <div class="row">
+			        <div class="col-md-6">
+			            <p class="input-group">
+			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="taxiRide.date" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+			              <span class="input-group-btn">
+			                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			              </span>
+			            </p>
+			        </div>
+			
+			    </div>
+				
 				<button ng-click="save()" class="btn btn-success">Save</button>
-				<button ng-click="update()" class="btn btn-success">Update</button>
 			</form>
 			
 			<br/>

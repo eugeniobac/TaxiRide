@@ -1,9 +1,30 @@
-<html>
+<html ng-app="angularjsapp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample Angular JS - Driver</title>
+	<script src="resources/js/lib/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap-theme.min.css">
+	<script src="resources/js/lib/angular.js"></script>
+	<script src="resources/js/IndexController.js"></script>
+	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+</head>
 <body>
-		<div class="container">
-			<a href="driver.html">Manage a Driver</a>
-			<a href="taxiRide.html">Taxi Ride</a>
-		</div>
-		
+
+<div ng-controller="IndexController">
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+        Simple Menu <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="driver.html">Manager a Driver</a></li>
+        <li><a href="taxiRide.html">Taxi Ride</a></li>
+        <li><a href="report.html">Report</a></li>
+      </ul>
+    </div>
+</div>
 </body>
 </html>

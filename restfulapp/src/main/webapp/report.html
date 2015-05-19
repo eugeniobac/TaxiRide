@@ -1,0 +1,86 @@
+<html ng-app="angularjsapp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample Angular JS - Taxi Ride</title>
+	<script src="resources/js/lib/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/styles/lib/bootstrap-theme.min.css">
+	<script src="resources/js/lib/angular.js"></script>
+	<script src="resources/js/ReportController.js"></script>
+	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	
+	<style>
+	  .full button span {
+	    background-color: limegreen;
+	    border-radius: 32px;
+	    color: black;
+	  }
+	  .partially button span {
+	    background-color: orange;
+	    border-radius: 32px;
+	    color: black;
+	  }
+	</style>
+</head>
+
+<body ng-controller="ReportController as controller">
+		<div class="container">
+			<h3>Report</h3>
+			<form class="form">
+				<label>Start Date:</label>				
+			    <div class="row">
+			        <div class="col-md-6">
+			            <p class="input-group">
+			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.startDate" is-open="openedStartDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+			              <span class="input-group-btn">
+			                <button type="button" class="btn btn-default" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			              </span>
+			            </p>
+			        </div>
+			    </div>
+			    <label>End Date:</label>
+			    <div class="row">
+			        <div class="col-md-6">
+			            <p class="input-group">
+			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.endDate" is-open="openedEndDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+			              <span class="input-group-btn">
+			                <button type="button" class="btn btn-default" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			              </span>
+			            </p>
+			        </div>
+			    </div>
+				
+				<button ng-click="generate()" class="btn btn-success">Generate Report!</button>
+			</form>
+			
+			
+				<h3>List of Drivers</h3>
+			<table class="table table-striped" style="width : 30%">
+                <thead>
+                    <tr>
+                        <th>Driver</th>
+                        <th>Cost</th>
+                        <th>Duration</th>
+                        <th>Passenger</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="taxiRide in taxiRideList | orderBy: taxiRide.date">
+                        <td>{{taxiRide.driver.name}}</td>
+                        <td>{{taxiRide.cost}}</td>
+                        <td>{{taxiRide.duration}}</td>
+                        <td>{{taxiRide.passenger.firstName}}</td>
+                        <td>{{taxiRide.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+			
+			<br/>
+		</div>
+</body>
+
+</html>
