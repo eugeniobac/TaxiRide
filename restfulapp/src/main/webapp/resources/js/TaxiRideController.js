@@ -51,6 +51,9 @@
 				$scope.successTextAlert = "Success!";
 				$scope.showSuccessAlert = true;
 				$scope.showErrorAlert = false;
+				
+				$scope.listPassengersFromHistory();
+				$scope.listNewPassengers();
 			}).error(function(data, status, headers, config) {
 				$scope.errorTextAlert = getMessage("interpolatedMessage='", data);
 				$scope.showSuccessAlert = false;
