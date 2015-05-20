@@ -13,7 +13,7 @@
 			console.debug(angular.toJson($scope.report));
 			
 			$http.post(url +  "/report/generate", angular.toJson($scope.report)).success(function(data) {
-				$scope.taxiRideList.unshift(data);
+				$scope.taxiRideList = data;
 			});
 		};
 		

@@ -8,6 +8,7 @@
 	<script src="resources/js/lib/jquery-2.1.4.min.js"></script>
 	<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="resources/styles/lib/bootstrap-theme.min.css">
+	<script src="resources/js/lib/functions.js"></script>
 	<script src="resources/js/lib/angular.js"></script>
 	<script src="resources/js/TaxiRideController.js"></script>
 	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
@@ -27,49 +28,59 @@
 </head>
 
 <body ng-controller="TaxiRideController as controller">
-		<div class="container">
-			<h3>Taxi Ride</h3>
-			<form class="form">
-				<label>Driver:<br/>
-					<select ng-model="taxiRide.driver" ng-options="driver.name for driver in driverlist "></select>
-				</label>
-				<br/>
-				<label>Duration:
-					<input type="number" class="form-control" ng-model="taxiRide.duration"/>
-				</label>
-				<br/>
-				<label>Cost:
-	                <input type="number" class="form-control" name="cost" ng-model="taxiRide.cost" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.10" required />
-				</label>
-				<br/>
-				<label>New Passengers:
-					<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in newPassengersList "></select>
-				</label>
-			    <button class="btn btn-default" ng-click="openModal('sm')">Add New Passenger</button>
-				<br/>
-				<label>Passengers from history:
-					<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in historyPassengersList "></select>
-				</label>
-				<br/>
-
-				<label>Date:</label>				
-			    <div class="row">
-			        <div class="col-md-6">
-			            <p class="input-group">
-			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="taxiRide.date" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-			              <span class="input-group-btn">
-			                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-			              </span>
-			            </p>
-			        </div>
-			
-			    </div>
-				
-				<button ng-click="save()" class="btn btn-success">Save</button>
-			</form>
-			
+	<a href="index.html">Back</a>
+	<div class="container">
+		<h3>Taxi Ride</h3>
+		<form class="form">
+			<label>Driver:<br/>
+				<select ng-model="taxiRide.driver" ng-options="driver.name for driver in driverlist "></select>
+			</label>
 			<br/>
-		</div>
+			<label>Duration:
+				<input type="number" class="form-control" ng-model="taxiRide.duration"/>
+			</label>
+			<br/>
+			<label>Cost:
+                <input type="number" class="form-control" name="cost" ng-model="taxiRide.cost" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.10" required />
+			</label>
+			<br/>
+			<label>New Passengers:
+				<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in newPassengersList "></select>
+			</label>
+		    <button class="btn btn-default" ng-click="openModal('sm')">Add New Passenger</button>
+			<br/>
+			<label>Passengers from history:
+				<select ng-model="taxiRide.passenger" ng-options="passenger.firstName for passenger in historyPassengersList "></select>
+			</label>
+			<br/>
+
+			<label>Date:</label>				
+		    <div class="row">
+		        <div class="col-md-6">
+		            <p class="input-group">
+		              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="taxiRide.date" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+		              <span class="input-group-btn">
+		                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+		              </span>
+		            </p>
+		        </div>
+		
+		    </div>
+			
+			<button ng-click="save()" class="btn btn-success">Save</button>
+		</form>
+		
+		  <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')" >×</button>
+		     <strong>Saved!</strong> {{successTextAlert}}
+		 </div>
+         <div class="alert alert-danger" ng-show="showErrorAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')" >×</button>
+		     <strong>Error!</strong> {{errorTextAlert}}
+		 </div>
+		
+		<br/>
+	</div>
 		 <script type="text/ng-template" id="passenger.html">
     	   <div class="modal-header">
 		      <h3 class="modal-title">Add new Passenger</h3>

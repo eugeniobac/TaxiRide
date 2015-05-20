@@ -34,8 +34,6 @@ public class DriverResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/new")
     public Response save(Driver driver, @Context UriInfo uri) {
-	if (driver == null)
-	    return Response.notAcceptable(null).build();
 	repository.save(driver);
 	return Response.status(Response.Status.ACCEPTED).entity(driver).build();
     }

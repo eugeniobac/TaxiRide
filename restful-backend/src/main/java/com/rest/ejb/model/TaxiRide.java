@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class TaxiRide implements Serializable {
@@ -20,14 +21,19 @@ public class TaxiRide implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private Double cost;
+    @NotNull
     private Integer duration;
+    @NotNull
     private Date date;
 
     @ManyToOne
+    @NotNull(message = "Field driver is required!")
     private Driver driver;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @NotNull(message = "Field passenger is required!")
     private Passenger passenger;
 
     public Long getId() {

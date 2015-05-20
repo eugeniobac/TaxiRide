@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -22,8 +24,15 @@ public class Passenger implements Serializable {
     @GeneratedValue
     private Long id;
 
+    @NotNull(message = "Field firstName is required!")
+    @Size(max = 10, message = "Max 100 characters per firstName!")
     private String firstName;
+
+    @NotNull(message = "Field lastName is required!")
+    @Size(max = 10, message = "Max 100 characters per lastName!")
     private String lastName;
+
+    @NotNull(message = "Field age is required!")
     private Integer age;
 
     @OneToMany(mappedBy = "passenger")

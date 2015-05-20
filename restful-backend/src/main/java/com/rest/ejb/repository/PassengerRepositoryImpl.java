@@ -16,7 +16,7 @@ public class PassengerRepositoryImpl extends BaseRepositoryImpl<Passenger> imple
 	if (exists)
 	    clause = "IS NOT NULL";
 
-	return getSession().createQuery("SELECT p FROM Passenger as p LEFT JOIN p.taxiRide as t WHERE t " + clause).list();
+	return getSession().createQuery("SELECT DISTINCT(p) FROM Passenger as p LEFT JOIN p.taxiRide as t WHERE t " + clause).list();
     }
 
 }

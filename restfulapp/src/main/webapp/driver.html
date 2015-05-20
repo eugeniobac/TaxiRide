@@ -8,50 +8,60 @@
 	<script src="resources/js/lib/jquery-2.1.4.min.js"></script>
 	<link rel="stylesheet" href="resources/styles/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="resources/styles/lib/bootstrap-theme.min.css">
+	<script src="resources/js/lib/functions.js"></script>
 	<script src="resources/js/lib/angular.js"></script>
 	<script src="resources/js/DriverController.js"></script>
 	<script src="resources/js/lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
 </head>
 
 <body ng-controller="DriverController as controller">
-		<div class="container">
-			<h3>Add a new Driver</h3>
-			<form class="form">
-				ID: <input type="text" ng-model="driver.id" readonly="readonly"/> <br/>
-				Name: <input type="text" ng-model="driver.name"/> <br/>
-				License: <input type="text" ng-model="driver.license"/><br/>
-				<button ng-click="save()" class="btn btn-success">Save</button>
-				<button ng-click="update()" class="btn btn-success">Update</button>
-			</form>
-			
-			<br/>
-			
-			<h3>List of Drivers</h3>
-			<table class="table table-striped" style="width : 30%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>License</th>
-                        <th>Remove?</th>
-                        <th>Update?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="driver in driverlist | orderBy: driver.name">
-                        <td>{{driver.id}}</td>
-                        <td>{{driver.name}}</td>
-                        <td>{{driver.license}}</td>
-                        <td>
-                        	<button ng-click="remove(driver)" class="btn btn-danger">Remove</button>
-                        </td>
-						<td>
-                        	<button ng-click="updateData(driver)" class="btn btn-danger">Update</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-		</div>
+	<a href="index.html">Back</a>
+	<div class="container">
+		<h3>Add a new Driver</h3>
+		<form name="myForm" class="form">
+			ID: <input type="text" ng-model="driver.id" readonly="readonly"/> <br/>
+			Name: <input type="text"  ng-model="driver.name" /> <br/>
+			License: <input type="text" ng-model="driver.license" /><br/>
+			<button ng-click="save()" class="btn btn-success">Save</button>
+			<button ng-click="update()" class="btn btn-success">Update</button>
+		</form>
+		
+		<br/>
+		
+		<h3>List of Drivers</h3>
+		<table class="table table-striped" style="width : 30%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>License</th>
+                    <th>Remove?</th>
+                    <th>Update?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="driver in driverlist | orderBy: driver.name">
+                    <td>{{driver.id}}</td>
+                    <td>{{driver.name}}</td>
+                    <td>{{driver.license}}</td>
+                    <td>
+                    	<button ng-click="remove(driver)" class="btn btn-danger">Remove</button>
+                    </td>
+				    <td>
+                    	<button ng-click="updateData(driver)" class="btn btn-danger">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+         <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')" >×</button>
+		     <strong>Saved!</strong> {{successTextAlert}}
+		 </div>
+         <div class="alert alert-danger" ng-show="showErrorAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')" >×</button>
+		     <strong>Error!</strong> {{errorTextAlert}}
+		 </div>
+	</div>
 		
 </body>
 </html>

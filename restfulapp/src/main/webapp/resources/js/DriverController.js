@@ -11,15 +11,24 @@
 	app.controller('DriverController', ['$scope', '$http', function($scope, $http) {
 		$scope.list = function() {
 			$http.get(url + '/driver/list').success(function(data) {
-				console.debug(data);
 				$scope.driverlist = data;
 			});
 		};
 
+		$scope.switchBool = function(value) {
+			$scope[value] = !$scope[value];
+		};
 
 		$scope.save = function() {
 			$http.post(url +  "/driver/new", angular.toJson($scope.driver)).success(function(data) {
 				$scope.driverlist.unshift(data);
+				$scope.successTextAlert = "Success!";
+				$scope.showSuccessAlert = true;
+				$scope.showErrorAlert = false;
+			}).error(function(data, status, headers, config) {
+				$scope.errorTextAlert = getMessage("interpolatedMessage='", data);
+				$scope.showSuccessAlert = false;
+				$scope.showErrorAlert = true;
 			});
 		};
 		
@@ -29,8 +38,13 @@
 
 		$scope.update = function() {
 			$http.put(url +  "/driver/update", angular.toJson($scope.driver)).success(function(data) {
-				$scope.driverlist.unshift(data);
-				$scope.list();
+				$scope.successTextAlert = "Success!";
+				$scope.showSuccessAlert = true;
+				$scope.showErrorAlert = false;
+			}).error(function(data, status, headers, config) {
+				$scope.errorTextAlert = getMessage("interpolatedMessage='", data);
+				$scope.showSuccessAlert = false;
+				$scope.showErrorAlert = true;
 			});
 		};
 

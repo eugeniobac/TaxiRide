@@ -9,15 +9,19 @@
 	]);
 
 	app.controller('TaxiRideController', ['$scope','$modal' ,'$http', function($scope,$modal,$http) {
-		  $scope.animationsEnabled = true;
-
+		$scope.animationsEnabled = true;
 		  $scope.openModal = function (size) {
 
 		    var modalInstance = $modal.open({
 		      animation: $scope.animationsEnabled,
 		      templateUrl: 'passenger.html',
 		      controller: 'ModalInstanceController',
-		      size: size
+		      size: size,
+		      resolve: {
+		    	  newPassengersList: function () {
+		    	      return $scope.newPassengersList;
+		    	    }
+		      }
 		    });
 
 		    modalInstance.result.then(function (selectedItem) {
@@ -29,6 +33,10 @@
 		  $scope.toggleAnimation = function () {
 		    $scope.animationsEnabled = !$scope.animationsEnabled;
 		  };
+		  
+			$scope.switchBool = function(value) {
+				$scope[value] = !$scope[value];
+			};
 
 		$scope.listDriver = function() {
 			$http.get(url + '/driver/list').success(function(data) {
@@ -40,7 +48,13 @@
 			console.debug(angular.toJson($scope.taxiRide));
 			
 			$http.post(url +  "/taxiRide/new", angular.toJson($scope.taxiRide)).success(function(data) {
-				console.debug(data);
+				$scope.successTextAlert = "Success!";
+				$scope.showSuccessAlert = true;
+				$scope.showErrorAlert = false;
+			}).error(function(data, status, headers, config) {
+				$scope.errorTextAlert = getMessage("interpolatedMessage='", data);
+				$scope.showSuccessAlert = false;
+				$scope.showErrorAlert = true;
 			});
 		};
 		
@@ -117,10 +131,16 @@
 		}();
 	}]);
 
-	app.controller('ModalInstanceController', function ($scope, $modalInstance, $http) {
+	app.controller('ModalInstanceController', function ($scope, $modalInstance, $http, newPassengersList) {
 		$scope.ok = function () {
 			$http.post(url +  "/passenger/new", angular.toJson($scope.passenger)).success(function(data) {
-				console.log(data);
+				newPassengersList.unshift(data);
+				$scope.showSuccessAlert = true;
+				$scope.showErrorAlert = false;
+			}).error(function(data, status, headers, config) {
+				$scope.errorTextAlert = getMessage("interpolatedMessage='", data);
+				$scope.showSuccessAlert = false;
+				$scope.showErrorAlert = true;
 			});
 			$modalInstance.close();
 		};

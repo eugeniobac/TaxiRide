@@ -27,60 +27,60 @@
 </head>
 
 <body ng-controller="ReportController as controller">
-		<div class="container">
-			<h3>Report</h3>
-			<form class="form">
-				<label>Start Date:</label>				
-			    <div class="row">
-			        <div class="col-md-6">
-			            <p class="input-group">
-			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.startDate" is-open="openedStartDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-			              <span class="input-group-btn">
-			                <button type="button" class="btn btn-default" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-			              </span>
-			            </p>
-			        </div>
-			    </div>
-			    <label>End Date:</label>
-			    <div class="row">
-			        <div class="col-md-6">
-			            <p class="input-group">
-			              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.endDate" is-open="openedEndDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-			              <span class="input-group-btn">
-			                <button type="button" class="btn btn-default" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-			              </span>
-			            </p>
-			        </div>
-			    </div>
-				
-				<button ng-click="generate()" class="btn btn-success">Generate Report!</button>
-			</form>
+	<a href="index.html">Back</a>
+	<div class="container">
+		<h3>Report</h3>
+		<form class="form">
+			<label>Start Date:</label>				
+		    <div class="row">
+		        <div class="col-md-6">
+		            <p class="input-group">
+		              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.startDate" is-open="openedStartDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+		              <span class="input-group-btn">
+		                <button type="button" class="btn btn-default" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+		              </span>
+		            </p>
+		        </div>
+		    </div>
+		    <label>End Date:</label>
+		    <div class="row">
+		        <div class="col-md-6">
+		            <p class="input-group">
+		              <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="report.endDate" is-open="openedEndDate" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+		              <span class="input-group-btn">
+		                <button type="button" class="btn btn-default" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+		              </span>
+		            </p>
+		        </div>
+		    </div>
 			
-			
-				<h3>List of Drivers</h3>
-			<table class="table table-striped" style="width : 30%">
-                <thead>
-                    <tr>
-                        <th>Driver</th>
-                        <th>Cost</th>
-                        <th>Duration</th>
-                        <th>Passenger</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="taxiRide in taxiRideList | orderBy: taxiRide.date">
-                        <td>{{taxiRide.driver.name}}</td>
-                        <td>{{taxiRide.cost}}</td>
-                        <td>{{taxiRide.duration}}</td>
-                        <td>{{taxiRide.passenger.firstName}}</td>
-                        <td>{{taxiRide.date}}</td>
-                    </tr>
-                </tbody>
-            </table>
-			
-			<br/>
-		</div>
+			<button ng-click="generate()" class="btn btn-success">Generate Report!</button>
+		</form>
+		
+			<h3>List of Taxi Rides</h3>
+		<table class="table table-striped" style="width : 30%">
+               <thead>
+                   <tr>
+                       <th>Driver</th>
+                       <th>Cost</th>
+                       <th>Duration</th>
+                       <th>Passenger</th>
+                       <th>Date</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="taxiRide in taxiRideList | orderBy: taxiRide.driver.name">
+                       <td>{{taxiRide.driver.name}}</td>
+                       <td>{{taxiRide.cost}}</td>
+                       <td>{{taxiRide.duration}}</td>
+                       <td>{{taxiRide.passenger.firstName}}</td>
+                       <td>{{taxiRide.date | date:"dd/MM/yyyy"}}</td>
+                   </tr>
+               </tbody>
+           </table>
+		
+		<br/>
+	</div>
 </body>
 
 </html>
